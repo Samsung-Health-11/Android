@@ -5,5 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".record.RecordActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="recordactivity입니다"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
