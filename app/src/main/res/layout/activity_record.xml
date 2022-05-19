@@ -10,8 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvInformCalc">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -87,8 +87,8 @@
                     android:layout_marginStart="110dp"
                     android:layout_marginTop="121dp"
                     android:background="@null"
-                    android:hint="@string/hint_default_left"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
+                    android:text="25"
                     android:textColorHint="@color/black1"
                     android:textSize="24sp"
 
@@ -119,12 +119,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="110dp"
                     android:layout_marginBottom="15dp"
-                    android:text="24 . 0"
                     android:textColor="@color/gray5"
                     android:textSize="24sp"
                     android:theme="@style/Typography.H1"
                     app:layout_constraintBottom_toTopOf="@id/dot"
-                    app:layout_constraintStart_toStartOf="@id/recordWeight" />
+                    app:layout_constraintStart_toStartOf="@id/recordWeight"
+                    tools:text="24" />
 
                 <TextView
                     android:id="@+id/tvInputBottom"
@@ -133,13 +133,13 @@
                     android:layout_marginStart="110dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="37dp"
-                    android:text="26 . 2"
                     android:textColor="@color/gray5"
                     android:textSize="24sp"
                     android:theme="@style/Typography.H1"
                     app:layout_constraintBottom_toBottomOf="@id/recordWeight"
                     app:layout_constraintStart_toStartOf="@id/recordWeight"
-                    app:layout_constraintTop_toBottomOf="@id/dot" />
+                    app:layout_constraintTop_toBottomOf="@id/dot"
+                    tools:text="26" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
