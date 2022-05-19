@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SamsungHealth</string>
+    <string name="record_weight">체중 기록하기</string>
+    <string name="date">5월 10일 (화) 오후 2:58</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
+    <string name="inform">입력하는 체중은 사용자 프로필에도 반영됩니다.</string>
+    <string name="calc_inform">체수분과 기초대사량(BMR)은 내가 입력한 체지방률을\n바탕으로 계산됩니다.</string>
+    <string name="weight">체중 (kg)</string>
+    <string name="hint_default_left">25</string>
+    <string name="hint_default_right">1</string>
+    <string name="body_fat">체지방률</string>
+    <string name="muscle">골격근량</string>
 </resources>

@@ -1,9 +1,321 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bggray"
     tools:context=".record.RecordActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="8dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/bottom_button_container"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvRecordWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="56dp"
+                android:text="@string/record_weight"
+                android:textColor="@color/black1"
+                android:textSize="21sp"
+                android:theme="@style/Typography.H2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="75dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rectangle_gray_radius_20"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="6dp"
+                android:text="@string/date"
+                android:textColor="@color/black1"
+                android:textSize="18sp"
+                android:theme="@style/Typography.B1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRecordWeight" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recordWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rectangle_bgwhite_radius_20"
+                app:layout_constraintTop_toBottomOf="@id/tvDate">
+
+                <TextView
+                    android:id="@+id/tvWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="21dp"
+                    android:text="@string/weight"
+                    android:textColor="@color/black1"
+                    android:textSize="15sp"
+                    android:theme="@style/Typography.H3"
+                    app:layout_constraintStart_toStartOf="@id/recordWeight"
+                    app:layout_constraintTop_toTopOf="@id/recordWeight" />
+
+                <TextView
+                    android:id="@+id/dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="."
+                    android:textColor="@color/black1"
+                    android:textSize="24sp"
+                    android:theme="@style/Typography.H3"
+                    app:layout_constraintBottom_toBottomOf="@id/etInputWeightRight"
+                    app:layout_constraintEnd_toEndOf="@id/etInputWeightRight"
+                    app:layout_constraintStart_toStartOf="@id/etInputWeightLeft" />
+
+                <EditText
+                    android:id="@+id/etInputWeightLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginTop="121dp"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
+                    android:text="25"
+                    android:textColorHint="@color/black1"
+                    android:textSize="24sp"
+
+                    android:theme="@style/Typography.H1"
+                    app:layout_constraintStart_toStartOf="@id/recordWeight"
+                    app:layout_constraintTop_toTopOf="@id/recordWeight" />
+
+                <EditText
+                    android:id="@+id/etInputWeightRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="121dp"
+                    android:layout_marginEnd="117dp"
+                    android:background="@null"
+                    android:hint="@string/hint_default_right"
+                    android:inputType="number"
+
+                    android:textColorHint="@color/black1"
+                    android:textSize="24sp"
+                    android:theme="@style/Typography.H1"
+
+                    app:layout_constraintEnd_toEndOf="@id/recordWeight"
+                    app:layout_constraintTop_toTopOf="@id/recordWeight" />
+
+                <TextView
+                    android:id="@+id/tvInputTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/gray5"
+                    android:textSize="24sp"
+                    android:theme="@style/Typography.H1"
+                    app:layout_constraintBottom_toTopOf="@id/dot"
+                    app:layout_constraintStart_toStartOf="@id/recordWeight"
+                    tools:text="24" />
+
+                <TextView
+                    android:id="@+id/tvInputBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="37dp"
+                    android:textColor="@color/gray5"
+                    android:textSize="24sp"
+                    android:theme="@style/Typography.H1"
+                    app:layout_constraintBottom_toBottomOf="@id/recordWeight"
+                    app:layout_constraintStart_toStartOf="@id/recordWeight"
+                    app:layout_constraintTop_toBottomOf="@id/dot"
+                    tools:text="26" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvInform"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
+                android:text="@string/inform"
+                android:textColor="@color/gray3"
+                android:textSize="13sp"
+                android:theme="@style/Typography.B3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recordWeight" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/detailInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/rectangle_bgwhite_radius_20"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tvInform">
+
+                <TextView
+                    android:id="@+id/tvBodyFat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/body_fat"
+                    android:textColor="@color/black1"
+                    android:textSize="15sp"
+                    android:theme="@style/Typography.H3"
+                    app:layout_constraintStart_toStartOf="@id/detailInfo"
+                    app:layout_constraintTop_toTopOf="@id/detailInfo" />
+
+                <TextView
+                    android:id="@+id/tvMuscle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="31dp"
+                    android:text="@string/muscle"
+                    android:textColor="@color/black1"
+                    android:textSize="15sp"
+                    android:theme="@style/Typography.H3"
+                    app:layout_constraintStart_toStartOf="@id/detailInfo"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBodyFat" />
+
+                <EditText
+                    android:id="@+id/etInputFat"
+                    android:layout_width="63dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:backgroundTint="@color/gray3"
+                    app:layout_constraintBottom_toBottomOf="@id/percentage"
+                    app:layout_constraintEnd_toStartOf="@id/percentage"
+                    app:layout_constraintTop_toTopOf="@id/detailInfo" />
+
+                <EditText
+                    android:id="@+id/etInputMuscle"
+                    android:layout_width="63dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="6dp"
+                    android:backgroundTint="@color/gray3"
+                    app:layout_constraintBottom_toBottomOf="@id/kg"
+                    app:layout_constraintEnd_toStartOf="@id/kg"
+                    app:layout_constraintTop_toBottomOf="@id/etInputFat" />
+
+                <TextView
+                    android:id="@+id/percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/black2"
+                    android:textSize="13sp"
+                    android:theme="@style/Typography.B3"
+                    app:layout_constraintEnd_toEndOf="@id/detailInfo"
+                    app:layout_constraintTop_toTopOf="@id/detailInfo" />
+
+                <TextView
+                    android:id="@+id/kg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:text="kg"
+                    android:textColor="@color/black2"
+                    app:layout_constraintEnd_toEndOf="@id/detailInfo"
+                    app:layout_constraintTop_toBottomOf="@id/percentage" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvInformCalc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/calc_inform"
+                android:textColor="@color/gray3"
+                android:textSize="13sp"
+                android:theme="@style/Typography.B3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailInfo" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/memo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rectangle_bgwhite_radius_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvInformCalc">
+
+                <ImageView
+                    android:id="@+id/ivMemo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="19dp"
+                    android:layout_marginStart="17dp"
+                    android:src="@drawable/ic_memo"
+                    app:layout_constraintBottom_toBottomOf="@id/memo"
+                    app:layout_constraintStart_toStartOf="@id/memo"
+                    app:layout_constraintTop_toTopOf="@id/memo" />
+
+                <TextView
+                    android:id="@+id/tvMemo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="15dp"
+                    android:layout_marginStart="15dp"
+                    android:text="메모"
+                    app:layout_constraintStart_toEndOf="@id/ivMemo"
+                    app:layout_constraintTop_toTopOf="@id/memo"
+
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/bggray"
+            android:text="@string/save"
+            android:textColor="@color/black1"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnCancel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/bggray"
+            android:text="@string/cancel"
+            android:textColor="@color/black1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnSave"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
