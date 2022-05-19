@@ -292,23 +292,27 @@
         android:layout_height="76dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@drawable/rectangle_bggray"
-
+            android:backgroundTint="@color/bggray"
             android:text="@string/save"
+            android:textColor="@color/black1"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnCancel" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCancel"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@drawable/rectangle_bggray"
+            android:backgroundTint="@color/bggray"
             android:text="@string/cancel"
+            android:textColor="@color/black1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btnSave"
             app:layout_constraintStart_toStartOf="parent" />

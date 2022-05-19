@@ -1,11 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.SamsungHealth" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimary">@color/black1</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowBackground">@color/white</item>
 
         <item name="fontFamily">@font/notosans</item>
+        <item name="android:textColor">@color/black1</item>
     </style>
 </resources>
