@@ -26,9 +26,9 @@ class RecordActivity : AppCompatActivity() {
 
         //저장 버튼 누르면 입력값이 홈 화면에 뜨게 해주기
         binding.btnSave.setOnClickListener {
-            val intent = Intent(this, HomeFragment::class.java)
-            intent.putExtra("inputWeight", binding.etInputWeightLeft.text.toString() + '.' + binding.etInputWeightRight.text.toString())
-            startActivity(intent)
+            val saveIntent = Intent(this, HomeFragment::class.java)
+            saveIntent.putExtra("inputWeight", binding.etInputWeightLeft.text.toString() + "." + binding.etInputWeightRight.text.toString())
+            startActivity(saveIntent)
         }
 
 

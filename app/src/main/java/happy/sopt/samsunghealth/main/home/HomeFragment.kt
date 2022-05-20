@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import happy.sopt.samsunghealth.databinding.ActivityRecordBinding
 import happy.sopt.samsunghealth.databinding.FragmentHomeBinding
 import happy.sopt.samsunghealth.record.RecordActivity
 
@@ -23,6 +24,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //view가 만들어지고 난 후이며 이떄부터 Fragment가 activity에 온전히 접근 가능
+
         setOnInputWeightClickEvent()
     }
 

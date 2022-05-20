@@ -128,10 +128,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="121dp"
-                    android:layout_marginEnd="117dp"
+                    android:layout_marginEnd="113dp"
                     android:background="@null"
-                    android:text="@string/hint_default_right"
                     android:inputType="number"
+                    android:text="@string/hint_default_right"
                     android:textColorHint="@color/black1"
                     android:textSize="24sp"
                     android:theme="@style/Typography.H1"
@@ -249,8 +249,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="6dp"
                     android:backgroundTint="@color/gray3"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="@id/percentage"
                     app:layout_constraintEnd_toStartOf="@id/percentage"
+                    app:layout_constraintStart_toStartOf="@id/etInputMuscle"
                     app:layout_constraintTop_toTopOf="@id/detailInfo" />
 
                 <EditText
@@ -261,6 +263,7 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginBottom="6dp"
                     android:backgroundTint="@color/gray3"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="@id/kg"
                     app:layout_constraintEnd_toStartOf="@id/kg"
                     app:layout_constraintTop_toBottomOf="@id/etInputFat" />
@@ -274,6 +277,7 @@
                     android:textSize="13sp"
                     android:theme="@style/Typography.B3"
                     app:layout_constraintEnd_toEndOf="@id/detailInfo"
+                    app:layout_constraintStart_toStartOf="@id/kg"
                     app:layout_constraintTop_toTopOf="@id/detailInfo" />
 
                 <TextView
