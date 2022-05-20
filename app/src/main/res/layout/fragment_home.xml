@@ -363,9 +363,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
                     android:layout_marginTop="10dp"
-                    tools:text="__"
                     app:layout_constraintStart_toStartOf="@id/weight"
-                    app:layout_constraintTop_toBottomOf="@id/iv_weighticon" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_weighticon"
+                    tools:text="__" />
 
                 <TextView
                     android:id="@+id/kg"
