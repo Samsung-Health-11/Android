@@ -29,11 +29,11 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="29dp"
                 android:src="@drawable/ic_menu"
                 app:layout_constraintEnd_toEndOf="@id/home"
-                app:layout_constraintTop_toTopOf="@id/home"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="29dp"/>
+                app:layout_constraintTop_toTopOf="@id/home" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/walk"
@@ -291,10 +291,10 @@
                     android:layout_marginTop="37dp"
                     android:layout_marginEnd="17dp"
                     android:layout_marginBottom="30dp"
+                    android:background="@drawable/rectangle_white_radius_20"
                     android:text="입력"
                     app:layout_constraintBottom_toBottomOf="@id/food"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:background="@drawable/rectangle_white_radius_20"
                     app:layout_constraintTop_toTopOf="@id/food" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -368,14 +368,14 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_weighticon" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_inputweight"
+                    android:id="@+id/bt_input_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="37dp"
                     android:layout_marginEnd="17dp"
                     android:layout_marginBottom="41dp"
-                    android:text="입력"
                     android:background="@drawable/rectangle_white_radius_20"
+                    android:text="입력"
                     app:layout_constraintBottom_toBottomOf="@id/weight"
                     app:layout_constraintEnd_toEndOf="@id/weight"
                     app:layout_constraintTop_toTopOf="@id/weight" />
