@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
         resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode != RESULT_OK) return@registerForActivityResult
             val data = result.data ?: return@registerForActivityResult
-            binding.countKg.text = data.getStringExtra(WEIGHT_LEFT) + "." + data.getStringExtra(WEIGHT_RIGHT)
+            binding.countKg.text = "${data.getStringExtra(WEIGHT_LEFT)}.${data.getStringExtra(WEIGHT_RIGHT)}"
         }
     }
 
