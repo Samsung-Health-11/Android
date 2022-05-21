@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.core.view.isInvisible
 import androidx.core.widget.doOnTextChanged
 import happy.sopt.samsunghealth.databinding.ActivityRecordBinding
 import happy.sopt.samsunghealth.main.home.HomeFragment
+import happy.sopt.samsunghealth.main.home.HomeFragment.Companion.WEIGHT_LEFT
+import happy.sopt.samsunghealth.main.home.HomeFragment.Companion.WEIGHT_RIGHT
 
 class RecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecordBinding
@@ -20,16 +23,22 @@ class RecordActivity : AppCompatActivity() {
 
         //취소 버튼 눌렀을 떄 홈으로 가기
         binding.btnCancel.setOnClickListener {
-            val intent = Intent(this, HomeFragment::class.java)
-            startActivity(intent)
+            finish()
         }
 
-        //저장 버튼 누르면 홈 화면 돌아가기(입력값 반영 x)
+        //저장 버튼 누르면 홈 화면 돌아가기
         binding.btnSave.setOnClickListener {
             val saveIntent = Intent(this, HomeFragment::class.java)
-            startActivity(saveIntent)
+            saveIntent.putExtra(WEIGHT_LEFT, binding.etInputWeightLeft.text.toString())
+            saveIntent.putExtra(WEIGHT_RIGHT, binding.etInputWeightRight.text.toString())
+            setResult(RESULT_OK, saveIntent)
+            /*번들을 사용한다면 아래처럼
+            saveIntent.putExtra("weight", bundleOf(
+                WEIGHT_LEFT to binding.etInputWeightLeft.text.toString(),
+                WEIGHT_RIGHT to binding.etInputWeightRight.text.toString()
+            ))*/
+            finish()
         }
-
 
         initWeightLogic()
         initWeightEndLogic()
