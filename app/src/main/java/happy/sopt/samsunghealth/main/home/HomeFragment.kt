@@ -26,8 +26,6 @@ class HomeFragment : Fragment() {
         }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //view가 만들어지고 난 후이며 이떄부터 Fragment가 activity에 온전히 접근 가능
-
         setOnInputWeightClickEvent()
         setWeightResult()
     }
@@ -36,8 +34,6 @@ class HomeFragment : Fragment() {
         binding.btInputWeight.setOnClickListener {
             val intent = Intent(context, RecordActivity::class.java)
             resultLauncher.launch(intent)
-
-            //startActivity(Intent(context, RecordActivity::class.java))
         }
     }
 
