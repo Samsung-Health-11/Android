@@ -55,25 +55,27 @@
                     app:layout_constraintTop_toTopOf="@id/walk" />
 
                 <TextView
-                    android:id="@+id/tv_walkcount"
+                    android:id="@+id/tv_walk_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="19dp"
-                    android:text="198"
+                    android:text="0"
                     android:theme="@style/Typography.H1"
                     app:layout_constraintBottom_toBottomOf="@id/walk"
                     app:layout_constraintStart_toStartOf="@id/tv_walk"
-                    app:layout_constraintTop_toBottomOf="@id/tv_walk" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_walk"
+                    tools:text="0" />
 
                 <TextView
-                    android:id="@+id/tv_walkallcount"
+                    android:id="@+id/tv_walk_all_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" /1,900"
+                    android:text=" /0"
                     android:textSize="14sp"
                     android:theme="@style/Typography.B2"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_walkcount"
-                    app:layout_constraintStart_toEndOf="@id/tv_walkcount" />
+                    app:layout_constraintBottom_toBottomOf="@id/tv_walk_count"
+                    app:layout_constraintStart_toEndOf="@id/tv_walk_count"
+                    tools:text=" /198" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -118,14 +120,14 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_oneday" />
 
                 <TextView
-                    android:id="@+id/tv_shoescount"
+                    android:id="@+id/tv_shoes_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:text="198"
+                    android:text="0"
                     android:textFontWeight="500"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/oneday"
+                    app:layout_constraintEnd_toEndOf="@id/iv_shoese"
+                    app:layout_constraintStart_toStartOf="@id/iv_shoese"
                     app:layout_constraintTop_toBottomOf="@id/iv_shoese" />
 
                 <ImageView
@@ -141,11 +143,11 @@
                     android:id="@+id/tv_clockcount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="42dp"
-                    android:text="2"
+                    android:text="0"
                     android:textFontWeight="500"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/tv_shoescount"
+                    app:layout_constraintEnd_toEndOf="@id/iv_clock"
+                    app:layout_constraintStart_toStartOf="@id/iv_clock"
                     app:layout_constraintTop_toBottomOf="@id/iv_clock" />
 
                 <ImageView
@@ -161,9 +163,10 @@
                     android:id="@+id/tv_fire"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6"
+                    android:text="0"
                     android:textFontWeight="500"
                     android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@id/iv_fire"
                     app:layout_constraintStart_toStartOf="@id/iv_fire"
                     app:layout_constraintTop_toBottomOf="@id/iv_fire" />
 
@@ -278,7 +281,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="3dp"
-                    android:text=" /1,457kcal"
+                    android:text=" /0kcal"
                     android:textFontWeight="500"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/food_count"
