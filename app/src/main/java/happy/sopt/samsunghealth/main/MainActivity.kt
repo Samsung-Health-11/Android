@@ -19,5 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding.pager.apply {
             adapter = MainPagerAdapter(this@MainActivity)
         }
+
+        (1..3).forEach {
+            binding.bottomMenu.menu.getItem(it).isEnabled = false
+        }
+
     }
 }

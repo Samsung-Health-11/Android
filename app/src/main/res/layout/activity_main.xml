@@ -17,6 +17,10 @@
         android:id="@+id/bottomMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:itemIconSize="20dp"
+        app:itemTextAppearanceActive="@style/Typography.C2"
+        app:itemTextAppearanceInactive="@style/Typography.C2"
+        app:itemTextColor="@color/gray3"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/main" />
