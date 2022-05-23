@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
-        android:icon="@drawable/ic_home_on_20"
+        android:icon="@drawable/ic_menu_home"
         android:title="홈" />
     <item
         android:id="@+id/together"
-        android:icon="@drawable/ic_home_on_20"
+        android:icon="@drawable/ic_menu_together_inactive"
         android:title="투게더" />
     <item
         android:id="@+id/fitness"
-        android:icon="@drawable/ic_home_on_20"
+        android:icon="@drawable/ic_menu_fitness_inactive"
         android:title="피트니스" />
     <item
         android:id="@+id/my_page"
-        android:icon="@drawable/ic_home_on_20"
+        android:icon="@drawable/ic_menu_mypage_inactive"
         android:title="내 페이지" />
 </menu>
