@@ -21,7 +21,7 @@ class RecordActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //취소 버튼 눌렀을 떄 홈으로 가기
-        setOnCancleClickEvent()
+        setOnCancelClickEvent()
 
         //저장 버튼 누르면 홈 화면 돌아가기
         setOnSaveClickEvent()
@@ -45,7 +45,7 @@ class RecordActivity : AppCompatActivity() {
         }
     }
 
-    private fun setOnCancleClickEvent() {
+    private fun setOnCancelClickEvent() {
         binding.btnCancel.setOnClickListener {
             finish()
         }
