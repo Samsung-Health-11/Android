@@ -55,25 +55,51 @@
                     app:layout_constraintTop_toTopOf="@id/walk" />
 
                 <TextView
-                    android:id="@+id/tv_walkcount"
+                    android:id="@+id/tv_walk_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="19dp"
-                    android:text="198"
+                    android:text="0"
                     android:theme="@style/Typography.H1"
                     app:layout_constraintBottom_toBottomOf="@id/walk"
                     app:layout_constraintStart_toStartOf="@id/tv_walk"
-                    app:layout_constraintTop_toBottomOf="@id/tv_walk" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_walk"
+                    tools:text="0" />
 
                 <TextView
-                    android:id="@+id/tv_walkallcount"
+                    android:id="@+id/tv_walk_all_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" /1,900"
+                    android:text=" /0"
                     android:textSize="14sp"
                     android:theme="@style/Typography.B2"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_walkcount"
-                    app:layout_constraintStart_toEndOf="@id/tv_walkcount" />
+                    app:layout_constraintBottom_toBottomOf="@id/tv_walk_count"
+                    app:layout_constraintStart_toEndOf="@id/tv_walk_count"
+                    tools:text=" /198" />
+
+                <TextView
+                    android:id="@+id/tv_walk_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp"
+                    android:layout_marginEnd="105dp"
+                    android:text="10%"
+                    android:theme="@style/Typography.C1"
+                    app:layout_constraintEnd_toEndOf="@id/walk"
+                    app:layout_constraintTop_toTopOf="@id/walk" />
+
+                <ProgressBar
+                    android:id="@+id/progress_horizontal"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="113dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:max="100"
+                    android:progress="10"
+                    app:layout_constraintBottom_toBottomOf="@id/walk"
+                    app:layout_constraintStart_toStartOf="@id/tv_walk_percent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_walk_percent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -118,14 +144,15 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_oneday" />
 
                 <TextView
-                    android:id="@+id/tv_shoescount"
+                    android:id="@+id/tv_shoes_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:text="198"
+                    android:text="0"
                     android:textFontWeight="500"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/oneday"
+                    android:theme="@style/Typography.B1"
+                    app:layout_constraintEnd_toEndOf="@id/iv_shoese"
+                    app:layout_constraintStart_toStartOf="@id/iv_shoese"
                     app:layout_constraintTop_toBottomOf="@id/iv_shoese" />
 
                 <ImageView
@@ -141,11 +168,10 @@
                     android:id="@+id/tv_clockcount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="42dp"
-                    android:text="2"
-                    android:textFontWeight="500"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/tv_shoescount"
+                    android:text="0"
+                    android:theme="@style/Typography.B1"
+                    app:layout_constraintEnd_toEndOf="@id/iv_clock"
+                    app:layout_constraintStart_toStartOf="@id/iv_clock"
                     app:layout_constraintTop_toBottomOf="@id/iv_clock" />
 
                 <ImageView
@@ -161,9 +187,9 @@
                     android:id="@+id/tv_fire"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6"
-                    android:textFontWeight="500"
-                    android:textSize="18sp"
+                    android:text="0"
+                    android:theme="@style/Typography.B1"
+                    app:layout_constraintEnd_toEndOf="@id/iv_fire"
                     app:layout_constraintStart_toStartOf="@id/iv_fire"
                     app:layout_constraintTop_toBottomOf="@id/iv_fire" />
 
@@ -184,9 +210,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="15dp"
-                    android:font="@style/Typography.H1"
                     android:text="운동"
-                    android:textSize="15sp"
+                    android:theme="@style/Typography.H3"
                     app:layout_constraintStart_toStartOf="@id/exercise"
                     app:layout_constraintTop_toTopOf="@id/exercise" />
 
@@ -197,6 +222,7 @@
                     android:layout_marginStart="219dp"
                     android:layout_marginEnd="17dp"
                     android:text="기록 보기"
+                    android:theme="@style/Typography.H3"
                     app:layout_constraintEnd_toEndOf="@id/exercise"
                     app:layout_constraintTop_toTopOf="@+id/tv_exercise" />
 
@@ -256,33 +282,31 @@
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="15dp"
                     android:text="음식"
-                    android:textSize="15sp"
+                    android:theme="@style/Typography.H3"
                     app:layout_constraintStart_toStartOf="@id/food"
                     app:layout_constraintTop_toTopOf="@id/food" />
 
                 <TextView
-                    android:id="@+id/food_count"
+                    android:id="@+id/tv_food_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
                     android:text="0"
-                    android:textFontWeight="700"
-                    android:textSize="24sp"
+                    android:theme="@style/Typography.H1"
                     app:layout_constraintBottom_toBottomOf="@id/food"
                     app:layout_constraintStart_toStartOf="@id/tv_food"
                     app:layout_constraintTop_toBottomOf="@id/tv_food" />
 
                 <TextView
-                    android:id="@+id/food_allcount"
+                    android:id="@+id/tv_food_allcount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="3dp"
-                    android:text=" /1,457kcal"
-                    android:textFontWeight="500"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@id/food_count"
-                    app:layout_constraintStart_toEndOf="@id/food_count" />
+                    android:text=" /0kcal"
+                    android:theme="@style/Typography.B2"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_food_count"
+                    app:layout_constraintStart_toEndOf="@id/tv_food_count" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_input"
@@ -293,6 +317,7 @@
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/rectangle_white_radius_20"
                     android:text="입력"
+                    android:theme="@style/Typography.B2"
                     app:layout_constraintBottom_toBottomOf="@id/food"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/food" />
@@ -313,19 +338,42 @@
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="15dp"
                     android:text="수면"
-                    android:textSize="15sp"
+                    android:theme="@style/Typography.H3"
                     app:layout_constraintStart_toStartOf="@id/sleep"
                     app:layout_constraintTop_toTopOf="@id/sleep" />
 
                 <TextView
-                    android:id="@+id/sleeptime"
+                    android:id="@+id/tv_sleeptime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="19dp"
                     android:text="7시간 30분"
+                    android:theme="@style/Typography.H1"
                     app:layout_constraintBottom_toBottomOf="@id/sleep"
                     app:layout_constraintStart_toStartOf="@id/tv_sleep"
                     app:layout_constraintTop_toBottomOf="@id/tv_sleep" />
+
+                <TextView
+                    android:id="@+id/tv_sleep_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="오전2:20 ~ 오전 9:50"
+                    android:theme="@style/Typography.C1"
+                    app:layout_constraintEnd_toEndOf="@id/sleep"
+                    app:layout_constraintTop_toTopOf="@id/sleep" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@color/sleepblue"
+                    app:layout_constraintBottom_toBottomOf="@id/sleep"
+                    app:layout_constraintEnd_toEndOf="@id/tv_sleep_num"
+                    app:layout_constraintStart_toStartOf="@id/tv_sleep_num"
+                    app:layout_constraintTop_toBottomOf="@id/tv_sleep_num" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -343,7 +391,7 @@
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="15dp"
                     android:text="체중/체성분"
-                    android:textSize="15sp"
+                    android:theme="@style/Typography.H3"
                     app:layout_constraintStart_toStartOf="@id/weight"
                     app:layout_constraintTop_toTopOf="@id/weight" />
 
@@ -364,6 +412,7 @@
                     android:layout_marginStart="18dp"
                     android:layout_marginTop="10dp"
                     android:hint="__"
+                    android:theme="@style/Typography.H1"
                     app:layout_constraintStart_toStartOf="@id/weight"
                     app:layout_constraintTop_toBottomOf="@id/iv_weighticon" />
 
@@ -373,6 +422,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="kg"
+                    android:theme="@style/Typography.B2"
                     app:layout_constraintStart_toEndOf="@id/count_kg"
                     app:layout_constraintTop_toBottomOf="@id/iv_weighticon" />
 
@@ -385,6 +435,7 @@
                     android:layout_marginBottom="41dp"
                     android:background="@drawable/rectangle_white_radius_20"
                     android:text="입력"
+                    android:theme="@style/Typography.B2"
                     app:layout_constraintBottom_toBottomOf="@id/weight"
                     app:layout_constraintEnd_toEndOf="@id/weight"
                     app:layout_constraintTop_toTopOf="@id/weight" />
@@ -406,6 +457,7 @@
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="15dp"
                     android:text="물"
+                    android:theme="@style/Typography.H3"
                     app:layout_constraintStart_toStartOf="@id/water"
                     app:layout_constraintTop_toTopOf="@id/water" />
 
@@ -414,9 +466,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="0잔"
+                    android:text="0"
+                    android:theme="@style/Typography.H1"
                     app:layout_constraintStart_toStartOf="@id/water"
                     app:layout_constraintTop_toBottomOf="@id/tv_water" />
+
+                <TextView
+                    android:id="@+id/tv_drinkwate_cup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="3dp"
+                    android:text=" 잔"
+                    android:theme="@style/Typography.B2"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_drinkwater"
+                    app:layout_constraintStart_toEndOf="@id/tv_drinkwater" />
 
                 <ImageView
                     android:id="@+id/iv_water_minusbutton_off"
