@@ -57,8 +57,8 @@ class HomeFragment : Fragment() {
                 binding.tvFire.text = step.activity.toString()
             }
             data.calorie.let { calorie ->
-                binding.foodCount.text = calorie.intake.toString()
-                binding.foodAllcount.text = calorie.target.toString()
+                binding.tvFoodCount.text = calorie.intake.toString()
+                binding.tvFoodAllcount.text = calorie.target.toString()
             }
             binding.countKg.text = data.weight.toString()
             binding.tvDrinkwater.text = "${data.water}잔"
