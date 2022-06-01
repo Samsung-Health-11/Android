@@ -9,8 +9,8 @@ fun <T> parseResponse(
 ) {
     call.enqueue(object : Callback<BaseResponse<T>> {
         override fun onResponse(call: Call<BaseResponse<T>>, response: Response<BaseResponse<T>>) {
-            if (response.body()?.success == true && response.body()?.data != null) {
-                onSuccess(response.body()!!.data!!)
+            if (response.body()?.success == true) {
+                onSuccess(response.body()!!.data ?: Unit as T)
             } else {
                 onFailure(response.body()?.message ?: "")
             }

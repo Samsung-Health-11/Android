@@ -15,15 +15,14 @@ interface HealthService {
     @POST("health/weight")
     fun recordWeight(
         @Body request: RecordWeightRequest
-    ): Call<BaseResponse<Nothing>>
+    ): Call<BaseResponse<Unit>>
 
     data class RecordWeightRequest(val weight: Double)
 
     @PUT("health/water")
     fun editWater(
         @Body request: EditWaterRequest
-    ): Call<BaseResponse<EditWaterResponse>>
+    ): Call<BaseResponse<Unit>>
 
     data class EditWaterRequest(val type: WaterRecordType)
-    data class EditWaterResponse(val water: Double)
 }

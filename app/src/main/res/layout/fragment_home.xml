@@ -492,7 +492,7 @@
                     app:layout_constraintTop_toTopOf="@id/water" />
 
                 <ImageView
-                    android:id="@+id/iv_sater_plus_on"
+                    android:id="@+id/iv_water_plusbutton_on"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="11dp"

@@ -1,8 +1,11 @@
 package happy.sopt.samsunghealth.model
 
-//@JsonAdapter()
-enum class WaterRecordType(val value: String) {
-    PLUS("plus"), MINUS("minus")
-}
+import com.google.gson.annotations.SerializedName
 
-//class WaterRecordTypeSerializer: DeSeri
+enum class WaterRecordType {
+    @SerializedName("+")
+    PLUS,
+
+    @SerializedName("-")
+    MINUS
+}

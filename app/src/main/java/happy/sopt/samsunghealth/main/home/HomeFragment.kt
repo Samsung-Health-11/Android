@@ -9,15 +9,20 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import happy.sopt.samsunghealth.api.HealthService.EditWaterRequest
 import happy.sopt.samsunghealth.api.ServiceFactory
 import happy.sopt.samsunghealth.api.parseResponse
 import happy.sopt.samsunghealth.databinding.FragmentHomeBinding
+import happy.sopt.samsunghealth.model.WaterRecordType.MINUS
+import happy.sopt.samsunghealth.model.WaterRecordType.PLUS
 import happy.sopt.samsunghealth.record.RecordActivity
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding get() = _binding!!
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+
+    private var water = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -30,6 +35,7 @@ class HomeFragment : Fragment() {
         setOnInputWeightClickEvent()
         setWeightResult()
         fetchDatas()
+        setWaterUpdateClickListener()
     }
 
     private fun setOnInputWeightClickEvent() {
@@ -61,8 +67,25 @@ class HomeFragment : Fragment() {
                 binding.tvFoodAllcount.text = calorie.target.toString()
             }
             binding.countKg.text = data.weight.toString()
-            binding.tvDrinkwater.text = "${data.water}잔"
+            binding.tvDrinkwater.text = data.water.toString()
+
+            water = data.water
         })
+    }
+
+    private fun setWaterUpdateClickListener() {
+        binding.ivWaterMinusbuttonOff.setOnClickListener {
+            parseResponse(ServiceFactory.healthService.editWater(EditWaterRequest(MINUS)), {
+                water--
+                binding.tvDrinkwater.text = water.toString()
+            })
+        }
+        binding.ivWaterPlusbuttonOn.setOnClickListener {
+            parseResponse(ServiceFactory.healthService.editWater(EditWaterRequest(PLUS)), {
+                water++
+                binding.tvDrinkwater.text = water.toString()
+            })
+        }
     }
 
     override fun onDestroyView() {
