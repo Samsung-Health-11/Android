@@ -23,6 +23,7 @@ class HomeFragment : Fragment() {
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
 
     private var water = 0
+    private var weight = 0.0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -70,6 +71,7 @@ class HomeFragment : Fragment() {
             binding.tvDrinkwater.text = data.water.toString()
 
             water = data.water
+            weight = data.weight
         })
     }
 
