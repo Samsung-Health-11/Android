@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceFactory {
-    private val retrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl("https://43.200.4.231:8000/").build()
+    private val retrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl("http://43.200.4.231:8000/").build()
 
     private fun <T> createService(serviceClass: Class<T>) = retrofit.create(serviceClass)
 
