@@ -6,6 +6,9 @@ import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import androidx.core.widget.doOnTextChanged
+import happy.sopt.samsunghealth.api.HealthService
+import happy.sopt.samsunghealth.api.ServiceFactory
+import happy.sopt.samsunghealth.api.parseResponse
 import happy.sopt.samsunghealth.databinding.ActivityRecordBinding
 import happy.sopt.samsunghealth.main.home.HomeFragment
 import happy.sopt.samsunghealth.main.home.HomeFragment.Companion.WEIGHT_LEFT
@@ -20,14 +23,22 @@ class RecordActivity : AppCompatActivity() {
         binding = ActivityRecordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setInitWeight()
         //취소 버튼 눌렀을 떄 홈으로 가기
         setOnCancelClickEvent()
-
         //저장 버튼 누르면 홈 화면 돌아가기
         setOnSaveClickEvent()
 
         initWeightLogic()
         initWeightEndLogic()
+
+    }
+
+    private fun setInitWeight() {
+        val setWeightLeft = intent.getStringExtra("setWeightLeft").toString()
+        val setWeightRight = intent.getStringExtra("setWeightRight").toString()
+        binding.etInputWeightLeft.setText(setWeightLeft)
+        binding.etInputWeightRight.setText(setWeightRight)
     }
 
     private fun setOnSaveClickEvent() {
