@@ -42,17 +42,23 @@ class RecordActivity : AppCompatActivity() {
     }
 
     private fun setOnSaveClickEvent() {
+        val recordWeightRequest = HealthService.RecordWeightRequest(
+            weight = "${binding.etInputWeightLeft.text}.${binding.etInputWeightRight.text}".toDouble()
+        )
         binding.btnSave.setOnClickListener {
-            val saveIntent = Intent(this, HomeFragment::class.java)
-            saveIntent.putExtra(WEIGHT_LEFT, binding.etInputWeightLeft.text.toString())
-            saveIntent.putExtra(WEIGHT_RIGHT, binding.etInputWeightRight.text.toString())
-            setResult(RESULT_OK, saveIntent)
-            /*번들을 사용한다면 아래처럼
-            saveIntent.putExtra("weight", bundleOf(
-                WEIGHT_LEFT to binding.etInputWeightLeft.text.toString(),
-                WEIGHT_RIGHT to binding.etInputWeightRight.text.toString()
-            ))*/
-            finish()
+            parseResponse(ServiceFactory.healthService.recordWeight(recordWeightRequest),
+                {
+                    val saveIntent = Intent(this, HomeFragment::class.java)
+                    saveIntent.putExtra(WEIGHT_LEFT, binding.etInputWeightLeft.text.toString())
+                    saveIntent.putExtra(WEIGHT_RIGHT, binding.etInputWeightRight.text.toString())
+                    setResult(RESULT_OK, saveIntent)
+                    /*번들을 사용한다면 아래처럼
+                    saveIntent.putExtra("weight", bundleOf(
+                        WEIGHT_LEFT to binding.etInputWeightLeft.text.toString(),
+                        WEIGHT_RIGHT to binding.etInputWeightRight.text.toString()
+                    ))*/
+                    finish()
+                })
         }
     }
 
@@ -113,4 +119,5 @@ class RecordActivity : AppCompatActivity() {
         binding.tvInputTopEnd.text = (number - 1).toString()
         binding.tvInputBottomEnd.text = (number + 1).toString()
     }
+
 }
