@@ -43,6 +43,8 @@ class HomeFragment : Fragment() {
         binding.btInputWeight.setOnClickListener {
             val intent = Intent(context, RecordActivity::class.java)
             resultLauncher.launch(intent)
+            intent.putExtra("setWeightLeft", binding.countKg.text.split(".")[0])
+            intent.putExtra("setWeightRight", binding.countKg.text.split(".")[1])
         }
     }
 
