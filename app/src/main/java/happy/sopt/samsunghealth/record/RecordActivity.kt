@@ -10,12 +10,14 @@ import happy.sopt.samsunghealth.api.HealthService
 import happy.sopt.samsunghealth.api.ServiceFactory
 import happy.sopt.samsunghealth.api.parseResponse
 import happy.sopt.samsunghealth.databinding.ActivityRecordBinding
+import happy.sopt.samsunghealth.databinding.FragmentHomeBinding
 import happy.sopt.samsunghealth.main.home.HomeFragment
 import happy.sopt.samsunghealth.main.home.HomeFragment.Companion.WEIGHT_LEFT
 import happy.sopt.samsunghealth.main.home.HomeFragment.Companion.WEIGHT_RIGHT
 
 class RecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecordBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,21 +44,24 @@ class RecordActivity : AppCompatActivity() {
     }
 
     private fun setOnSaveClickEvent() {
-        val recordWeightRequest = HealthService.RecordWeightRequest(
-            weight = "${binding.etInputWeightLeft.text}.${binding.etInputWeightRight.text}".toDouble()
-        )
         binding.btnSave.setOnClickListener {
+            val saveIntent = Intent(this, HomeFragment::class.java)
+            saveIntent.putExtra(WEIGHT_LEFT, binding.etInputWeightLeft.text.toString())
+            saveIntent.putExtra(
+                WEIGHT_RIGHT,
+                binding.etInputWeightRight.text.toString()
+                /*번들을 사용한다면 아래처럼
+                saveIntent.putExtra("weight", bundleOf(
+                WEIGHT_LEFT to binding.etInputWeightLeft.text.toString(),
+                WEIGHT_RIGHT to binding.etInputWeightRight.text.toString()
+                ))*/
+            )
+            setResult(RESULT_OK, saveIntent)
+            val recordWeightRequest = HealthService.RecordWeightRequest(
+                weight = "${binding.etInputWeightLeft.text}.${binding.etInputWeightRight.text}".toDouble()
+            )
             parseResponse(ServiceFactory.healthService.recordWeight(recordWeightRequest),
                 {
-                    val saveIntent = Intent(this, HomeFragment::class.java)
-                    saveIntent.putExtra(WEIGHT_LEFT, binding.etInputWeightLeft.text.toString())
-                    saveIntent.putExtra(WEIGHT_RIGHT, binding.etInputWeightRight.text.toString())
-                    setResult(RESULT_OK, saveIntent)
-                    /*번들을 사용한다면 아래처럼
-                    saveIntent.putExtra("weight", bundleOf(
-                        WEIGHT_LEFT to binding.etInputWeightLeft.text.toString(),
-                        WEIGHT_RIGHT to binding.etInputWeightRight.text.toString()
-                    ))*/
                     finish()
                 })
         }
