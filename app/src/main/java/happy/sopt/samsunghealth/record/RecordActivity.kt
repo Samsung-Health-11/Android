@@ -6,6 +6,9 @@ import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import androidx.core.widget.doOnTextChanged
+import happy.sopt.samsunghealth.api.HealthService
+import happy.sopt.samsunghealth.api.ServiceFactory
+import happy.sopt.samsunghealth.api.parseResponse
 import happy.sopt.samsunghealth.databinding.ActivityRecordBinding
 import happy.sopt.samsunghealth.main.home.HomeFragment
 import happy.sopt.samsunghealth.main.home.HomeFragment.Companion.WEIGHT_LEFT
@@ -14,34 +17,53 @@ import happy.sopt.samsunghealth.main.home.HomeFragment.Companion.WEIGHT_RIGHT
 class RecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecordBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityRecordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //취소 버튼 눌렀을 떄 홈으로 가기
+        setInitWeight()
+        //취소 버튼 눌렀을 때 홈으로 가기
         setOnCancelClickEvent()
-
         //저장 버튼 누르면 홈 화면 돌아가기
         setOnSaveClickEvent()
 
         initWeightLogic()
         initWeightEndLogic()
+
+    }
+
+    private fun setInitWeight() {
+        val setWeightLeft = intent.getStringExtra("setWeightLeft").toString()
+        val setWeightRight = intent.getStringExtra("setWeightRight").toString()
+
+        binding.etInputWeightLeft.setText(setWeightLeft)
+        binding.etInputWeightRight.setText(setWeightRight)
     }
 
     private fun setOnSaveClickEvent() {
         binding.btnSave.setOnClickListener {
             val saveIntent = Intent(this, HomeFragment::class.java)
             saveIntent.putExtra(WEIGHT_LEFT, binding.etInputWeightLeft.text.toString())
-            saveIntent.putExtra(WEIGHT_RIGHT, binding.etInputWeightRight.text.toString())
-            setResult(RESULT_OK, saveIntent)
-            /*번들을 사용한다면 아래처럼
-            saveIntent.putExtra("weight", bundleOf(
+            saveIntent.putExtra(
+                WEIGHT_RIGHT,
+                binding.etInputWeightRight.text.toString()
+                /*번들을 사용한다면 아래처럼
+                saveIntent.putExtra("weight", bundleOf(
                 WEIGHT_LEFT to binding.etInputWeightLeft.text.toString(),
                 WEIGHT_RIGHT to binding.etInputWeightRight.text.toString()
-            ))*/
-            finish()
+                ))*/
+            )
+            setResult(RESULT_OK, saveIntent)
+            val recordWeightRequest = HealthService.RecordWeightRequest(
+                weight = "${binding.etInputWeightLeft.text}.${binding.etInputWeightRight.text}".toDouble()
+            )
+            parseResponse(ServiceFactory.healthService.recordWeight(recordWeightRequest),
+                {
+                    finish()
+                })
         }
     }
 
@@ -102,4 +124,5 @@ class RecordActivity : AppCompatActivity() {
         binding.tvInputTopEnd.text = (number - 1).toString()
         binding.tvInputBottomEnd.text = (number + 1).toString()
     }
+
 }
