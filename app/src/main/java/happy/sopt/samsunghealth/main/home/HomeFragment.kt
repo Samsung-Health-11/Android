@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
     private var water = 0
     private var weight = 0.0
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ) = FragmentHomeBinding.inflate(inflater, container, false).let {
@@ -33,6 +34,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         setOnInputWeightClickEvent()
         setWeightResult()
         fetchDatas()
@@ -42,18 +44,20 @@ class HomeFragment : Fragment() {
     private fun setOnInputWeightClickEvent() {
         binding.btInputWeight.setOnClickListener {
             val intent = Intent(context, RecordActivity::class.java)
-            resultLauncher.launch(intent)
             intent.putExtra("setWeightLeft", binding.countKg.text.split(".")[0])
             intent.putExtra("setWeightRight", binding.countKg.text.split(".")[1])
+            resultLauncher.launch(intent)
         }
     }
 
     private fun setWeightResult() {
-        resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode != RESULT_OK) return@registerForActivityResult
-            val data = result.data ?: return@registerForActivityResult
-            binding.countKg.text = "${data.getStringExtra(WEIGHT_LEFT)}.${data.getStringExtra(WEIGHT_RIGHT)}"
-        }
+        resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode != RESULT_OK) return@registerForActivityResult
+                val data = result.data ?: return@registerForActivityResult
+                binding.countKg.text =
+                    "${data.getStringExtra(WEIGHT_LEFT)}.${data.getStringExtra(WEIGHT_RIGHT)}"
+            }
     }
 
     private fun fetchDatas() {
